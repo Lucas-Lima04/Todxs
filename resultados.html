@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+  <title>Todxs</title>
+</head>
+
+<body>
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-4 mb-4">
+      <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="logo.png" alt="logo" style="height: 60px">
+      </a>
+      <div class="col-md-3 text-end">
+        <ul class="nav mb-2  mb-md-0 " style="float: right">
+          <li><a href="final.html" class="nav-link px-5 link-dark">Sobre</a></li>
+          <li><a href="http://www.llcunha.com" class="nav-link px-2 link-dark">llcunha.com</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="jumbotron ">
+      <div class="container pt-md-1 pb-md-4">
+        <div class="row align-middle">
+          <div class="col-xl-10">
+            <h1 class="bd-title display-4">
+              Opções de crédito
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12" style="display: flex">
+      <div id="emprestimoDiv" class="col-md-3 opcaoDiv py-4 mx-2">
+        <h1 class="lead py-2">Empréstimo</h1>
+      </div>
+      <div id="cartaoDiv" class="col-md-3 opcaoDiv py-4 mx-2">
+        <h1 class="lead py-2">Cartão de crédito</h1>
+      </div>
+
+    </div>
+    <div class="container">
+      <div class="jumbotron mt-3 p-5 containerOpcoes">
+        <div id="opcoesEmprestimo">
+
+        </div>
+
+        <div id="opcoesCartao">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container pt-md-1 pb-md-4 mt-3 py-4">
+      <div class="row align-middle">
+        <div class="flex-column flex-sm-row align-items-right">
+          <button id="secondaryButton" type="button" class="btn btn-lg btn-outline-secondary mt-3 mt-sm-0 ms-sm-3"
+            style="float: right" data-toggle="modal" data-target="#exampleModalCenter"
+            onclick="window.location.href='consultar.html'">Voltar</button>
+        </div>
+      </div>
+    </div>
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"></script>
+    <script src="calcularOpcoes.js"></script>
+
+    <script>
+      var cartaoDiv = document.getElementById("cartaoDiv");
+      var emprestimoDiv = document.getElementById("emprestimoDiv");
+      var opcoesCartao = document.getElementById("opcoesCartao");
+      var opcoesEmprestimo = document.getElementById("opcoesEmprestimo");
+
+      selectEmprestimo();
+      cartaoDiv.addEventListener('click', function () {
+        selectCartao();
+      }, false);
+      emprestimoDiv.addEventListener('click', function () {
+        selectEmprestimo();
+      }, false);
+
+      function selectCartao() {
+        cartaoDiv.classList.add("opcaoDivSelected");
+        emprestimoDiv.classList.remove("opcaoDivSelected");
+        opcoesEmprestimo.style.display = "none";
+        opcoesCartao.style.display = "block";
+      }
+
+      function selectEmprestimo() {
+        emprestimoDiv.classList.add("opcaoDivSelected");
+        cartaoDiv.classList.remove("opcaoDivSelected");
+        opcoesCartao.style.display = "none";
+        opcoesEmprestimo.style.display = "block";
+      }
+    </script>
+
+    <script>
+      calcularOpcoes();
+
+    </script>
+    <style>
+      a {
+        cursor: pointer;
+      }
+
+      .contratar {
+        cursor: pointer;
+        transition: ease-in-out .3s;
+      }
+
+      .contratar:hover {
+        color: #fbbd0d;
+      }
+
+      .containerOpcoes {
+        border: solid #f1f1f1 3px;
+        border-radius: 20px;
+      }
+
+      .opcaoDiv {
+        background: #fff;
+        text-align: center;
+        font-weight: 800;
+        border-radius: 20px;
+        border: solid #f1f1f1 3px;
+        transition: ease-in-out .3s;
+        cursor: pointer;
+      }
+
+      .opcaoDivSelected {
+        background: rgb(251 189 13);
+        background: linear-gradient(33deg, rgb(255 28 28) 0%, rgb(251 189 13) 100%);
+        color: #fff;
+      }
+
+      .opcaoDivSelected h1 {
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+
+      .opcaoDiv:hover {
+        -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
+      }
+
+      #mainButton {
+        background: #fbbd0d;
+        color: #fff;
+        border: none;
+        transition: ease-in-out .3s;
+      }
+
+      #mainButton:hover {
+        background: #fbbd0d;
+        color: #fff;
+        -webkit-box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.25);
+        transform: scale(1.1);
+      }
+
+      .nav-link:hover {
+        color: #fbbd0d;
+      }
+
+      .nav-link {
+        transition: ease-in-out .3s;
+      }
+
+      .vertical-center {
+        min-height: 80%;
+        /* Fallback for browsers do NOT support vh unit */
+        min-height: 80vh;
+        /* These two lines are counted as one :-)       */
+
+        display: flex;
+        align-items: center;
+      }
+
+      .tracking-in-contract-bck {
+        -webkit-animation: tracking-in-contract-bck 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        animation: tracking-in-contract-bck 1.2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+      }
+
+      /* ----------------------------------------------
+    * Generated by Animista on 2021-6-20 1:31:4
+    * Licensed under FreeBSD License.
+    * See http://animista.net/license for more info. 
+    * w: http://animista.net, t: @cssanimista
+    * ---------------------------------------------- */
+
+      /**
+    * ----------------------------------------
+    * animation tracking-in-contract-bck
+    * ----------------------------------------
+    */
+      @-webkit-keyframes tracking-in-contract-bck {
+        0% {
+          letter-spacing: 1em;
+          -webkit-transform: translateZ(400px);
+          transform: translateZ(400px);
+          opacity: 0;
+        }
+
+        40% {
+          opacity: 0.6;
+        }
+
+        100% {
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes tracking-in-contract-bck {
+        0% {
+          letter-spacing: 1em;
+          -webkit-transform: translateZ(400px);
+          transform: translateZ(400px);
+          opacity: 0;
+        }
+
+        40% {
+          opacity: 0.6;
+        }
+
+        100% {
+          -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+          opacity: 1;
+        }
+      }
+
+      .text-focus-in {
+        -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1s both;
+        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) 1s both;
+      }
+
+      /* ----------------------------------------------
+    * Generated by Animista on 2021-6-20 1:32:3
+    * Licensed under FreeBSD License.
+    * See http://animista.net/license for more info. 
+    * w: http://animista.net, t: @cssanimista
+    * ---------------------------------------------- */
+
+      /**
+    * ----------------------------------------
+    * animation text-focus-in
+    * ----------------------------------------
+    */
+      @-webkit-keyframes text-focus-in {
+        0% {
+          -webkit-filter: blur(12px);
+          filter: blur(12px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-filter: blur(0px);
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+
+      @keyframes text-focus-in {
+        0% {
+          -webkit-filter: blur(12px);
+          filter: blur(12px);
+          opacity: 0;
+        }
+
+        100% {
+          -webkit-filter: blur(0px);
+          filter: blur(0px);
+          opacity: 1;
+        }
+      }
+    </style>
+</body>
+
+</html>
