@@ -86,7 +86,7 @@ function montaTextoEmprestimo(tEmprestimo, tParcelas, juros) {
   var textHtml = "";
 
   textHtml = "<div class=\"col-md-12 my-5\">" +
-    "<h1 class=\"display-6\">Emprestimo de " + (tEmprestimo / 1000) + " mil reais com juros de " + juros + "% a.m. - Banco 1</h1>" +
+    "<h1 class=\"display-6\">Empréstimo de " + (tEmprestimo / 1000) + " mil reais com juros de " + juros + "% a.m. - Banco 1</h1>" +
     "<p class=\"lead\">Viajar, estudar, realizar um sonho: para cada conquista, temos uma solução sob medida. Conheça nossas opções de empréstimos e financiamentos pessoais.</p>" +
     "<p class=\"lead contratar\" onclick=\"" +
     "localStorage.setItem('tEmprestimo', " + tEmprestimo + ");" +
@@ -100,7 +100,7 @@ function montaTextoEmprestimo(tEmprestimo, tParcelas, juros) {
   const juros2 = parseFloat((juros * 0.7).toFixed(1));
 
   textHtml += "<div class=\"col-md-12 my-5\">" +
-    "<h1 class=\"display-6\">Emprestimo de " + (tEmprestimo2 / 1000) + " mil reais com juros de " + juros2 + "% a.m. - Banco 2</h1>" +
+    "<h1 class=\"display-6\">Empréstimo de " + (tEmprestimo2 / 1000) + " mil reais com juros de " + juros2 + "% a.m. - Banco 2</h1>" +
     "<p class=\"lead\">O financiamento pela cooperativa direto nas lojas conveniadas é uma alternativa de crédito simples e de fácil acesso. São centenas de lojistas conveniados oferecendo ótimas oportunidades de negócios para você.</p>" +
     "<p class=\"lead contratar\" onclick=\"" +
     "localStorage.setItem('tEmprestimo', " + tEmprestimo2 + ");" +
